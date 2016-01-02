@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base href="/">
+  <title>Circuit Styleguide</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="libs/googlecode.css" />
+  <link rel="stylesheet/less" type="text/css" href="styles.less" />
+  <script src="node_modules/less/dist/less.min.js"></script>
+  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="node_modules/angular2/bundles/http.dev.js"></script>
+  <script src="node_modules/angular2/bundles/router.dev.js"></script>
+  <script>
+    System.config({
+      packages: {
+        app: {
+          format: 'register', 
+          defaultExtension: 'js'
+        }
+      },
+      map: {
+        marked: 'node_modules/marked/marked.min.js',
+        less: 'node_modules/less/dist/less.min.js',
+        markdownParser: 'markdownParser.js'
+      }
+    });
+    System.import('app/boot').then(null, console.error.bind(console));
+  </script>
+</head>
+
+<body>
+  <app>Loading...</app>
+</body>
+
+</html>

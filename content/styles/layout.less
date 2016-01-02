@@ -1,0 +1,595 @@
+// LAYOUTS
+// --------------
+body {
+  margin: 0;
+  font-family: @baseFontFamily;
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  color: @charcoal;
+  background-color: #cdcdcd;
+}
+
+body,
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body > object { position: fixed; }  // This is for Temasys object in IE, created after initialization
+
+.large-list-background {
+  .bg-conversation-feed-texture;
+  background-repeat: repeat;
+  .box-shadow(inset 1px 1px 8px rgba(0, 0, 0, 0.03));
+}
+
+.pagewrap {
+  display: block;
+  height: 100%;
+  width: 100%;
+  min-width: 380px;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+.full-height {
+  height: 100%;
+}
+.full-width {
+  width: 100% !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.scroll-shadow {
+  z-index: @zindex-scroll-shadow;
+  position: relative;
+  .flex-shrink(0);
+  .box-shadow(-2px 1px 10px fade(black, 10%));
+  height: 20px;
+  width: 100%;
+  background: transparent;
+  .transition(top 0.25s ease-in-out);
+  &.top {
+    top: -7px;
+    margin-top: -20px;
+    &.show {
+      top: 0px;
+    }
+  }
+  &.bottom {
+    bottom: -4px;
+    margin-bottom: -20px;
+    &.show {
+      bottom: 0px;
+    }
+  }
+}
+
+.scroller {
+  width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x:-webkit-marquee;
+  -webkit-marquee-direction: forwards;
+  -webkit-marquee-style: scroll;
+  -webkit-marquee-speed: normal;
+  -webkit-marquee-increment: small;
+  -webkit-marquee-repetition: 5;
+  overflow-x: marquee-line;
+  marquee-direction: forward;
+  marquee-style: scroll;
+  marquee-speed: normal;
+  marquee-play-count: 5;
+}
+
+.layout {
+  &.vertical {
+    .flexbox;
+    .flex-direction(column);
+    height: inherit;
+    width: 100%;
+    border-collapse: collapse;
+    >.layout-inner {
+      .flexbox;
+      height: 100%;
+      .flex(1);
+      >.component {
+        .flexbox;
+        .is-table-cell {
+          .flexbox;
+          .flex-direction(column);
+          .flex(1);
+        }
+        > .component-inner {
+          .flexbox;
+          width: 100%;
+        }
+      }
+      .feedlist-thirdcolumn-container {
+        overflow: hidden;
+
+        // fade in feed when items rendered
+        opacity: 0;
+        &.rendered {
+          .transition(opacity 0.1s linear);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &.horizontal {
+    .flexbox;
+    .flex-direction(row);
+    height: 100%;
+    width: 100%;
+    .align-items(center);
+    > .layout-inner {
+      .flexbox;
+      height: 100%;
+
+      > .component {
+        .flexbox;
+        .flex-direction(column);
+
+        &.max-height-90 {
+          max-height: 90px;
+        }
+      }
+    }
+  }
+}
+
+.dark-view {
+  pointer-events: none;
+}
+.dark-view-overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: fade(black, 20%);
+  z-index: @zindex-dark-view-overlay;
+  pointer-events: none;
+  top: 132px;
+}
+
+u-overlay {
+  .loading-process {
+    .flex-1;
+    .flexbox;
+    align-items: center;
+    justify-content: center;
+    background-color: fade(@lightGrey, 40%);
+    .text-subHeading-lg2;
+    .text-charcoal25;
+
+    .loading-content {
+      .flexbox;
+      .flex-direction(column);
+    }
+
+    .loading-icon {
+      .align-self(center);
+      .icon-progress-spinner-l;
+    }
+
+    .text-wrapper {
+      margin: 15px 0px;
+    }
+  }
+
+  .dark-view-overlay {
+    &.loading-process {
+      background-color: fade(black, 50%);
+      z-index: @zindexModalBackdrop;
+      pointer-events: auto;
+      top: 0px;
+
+      .text {
+        .text-charcoal25;
+        .black-drop-shadow;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+  @media screen and (max-width: 780px) {
+    .main-window {
+      .layout-inner {
+      >.conversation-list {
+          min-width: 240px;
+          width: 240px;
+        }
+      >.right-list {
+          .popular-boards-tiles-container {
+            .popular-boards-tiles {
+              .popular-board-info {
+                font-size: 10px;
+                .popular-board-title {
+                  margin: 2px 10px 0 0;
+                }
+                .popular-board-members {
+                  margin: 0 0 2px 0;
+                }
+              }
+            }
+          }
+          .no-popular-boards-photo-container {
+            .no-popular-boards-message {
+              font-size: 12px;
+            }
+          }
+          .feed-header {
+            min-width: 430px;
+          }
+          .call-container.fixed {
+            min-width: 430px;
+            width: ~'calc(100% - 240px)';
+            .overlays {
+              .text-mini !important;
+            }
+          }
+          .two-columns {
+            .feed-list {
+              .itemlist {
+                .image-container, .video-container {
+                  max-width: 280px;
+                  width: 280px;
+                  max-height: 180px;
+                  height: 180px;
+                  &.on-comment {
+                    max-width: 180px;
+                    width: 180px;
+                  }
+                  &.portrait {
+                    max-width: 135px;
+                    width: 135px;
+                  }
+                  &.direct-video, &.direct-audio {
+                    max-width: 180px;
+                    width: 180px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 781px) and (max-width: 940px) {
+    .main-window {
+      .layout-inner {
+      >.conversation-list {
+          min-width: 240px;
+          width: 240px;
+        }
+      >.right-list {
+          .call-container.fixed {
+            min-width: 430px;
+            width: ~'calc(100% - 240px)';
+            .overlays {
+              .text-h3;
+            }
+          }
+          .two-columns {
+            .feed-list {
+              .itemlist {
+                .image-container, .video-container {
+                  max-width: 360px;
+                  width: 360px;
+                  max-height: 232px;
+                  height: 232px;
+                  &.on-comment {
+                    max-width: 260px;
+                    width: 260px;
+                  }
+                  &.portrait {
+                    max-width: 174px;
+                    width: 174px;
+                  }
+                  &.direct-video, &.direct-audio {
+                    max-width: 232px;
+                    width: 232px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 941px) and (max-width: 1200px) {
+    .main-window {
+      .layout-inner {
+      >.conversation-list {
+        min-width: 300px;
+        width: 300px;
+        }
+      >.right-list {
+          .call-container.fixed {
+            width: ~'calc(100% - 300px)';
+          }
+          .two-columns {
+            .feed-list {
+              .itemlist {
+                .image-container, .video-container {
+                  max-width: 360px;
+                  width: 360px;
+                  max-height: 232px;
+                  height: 232px;
+                  &.on-comment {
+                    max-width: 260px;
+                    width: 260px;
+                  }
+                  &.portrait {
+                    max-width: 174px;
+                    width: 174px;
+                  }
+                  &.direct-video, &.direct-audio {
+                    max-width: 232px;
+                    width: 232px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1201px) {
+    .main-window {
+      .layout-inner {
+      >.conversation-list {
+          min-width: 300px;
+          width: 300px;
+        }
+      >.right-list {
+          .call-container.fixed {
+            width: ~'calc(100% - 300px)';
+          }
+          .two-columns {
+            .feed-list {
+              .itemlist {
+                .image-container, .video-container {
+                  max-width: 480px;
+                  width: 480px;
+                  max-height: 312px;
+                  height: 312px;
+                  &.on-comment {
+                    max-width: 380px;
+                    width: 380px;
+                  }
+                  &.portrait {
+                    max-width: 234px;
+                    width: 234px;
+                  }
+                  &.direct-video, &.direct-audio {
+                    max-width: 312px;
+                    width: 312px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+.main-window {
+  > .layout-inner {
+    > .conversation-list {
+      background: white;
+    }
+    > .right-list {
+      &.normal-mode {
+        position: relative;
+        .flex(1);
+        .modal-view {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          &.front {
+            z-index: @zindex-u-view;
+          }
+        }
+      }
+      .feed-list {
+        .itemlist {
+          .list-item {
+            min-width: ~'calc(400px + (@{feedItemMarginLeftRight} * 2))';
+            width: ~'calc(80% + (@{feedItemMarginLeftRight} * 2))';
+            max-width: ~'calc(640px + (@{feedItemMarginLeftRight} * 2))';
+            margin: auto;
+
+            &.gap {
+              width: 100%;
+              max-width: 100%;
+              margin: 0;
+            }
+          }
+          .comment-item-body {
+            width: ~'calc(80% - 108px + (@{feedItemMarginLeftRight} * 2))';
+          }
+        }
+      }
+      .bottom-area-width {
+        min-width: ~'calc(400px + (@{feedItemMarginLeftRight} * 2))';
+        width: ~'calc(80% + (@{feedItemMarginLeftRight} * 2))';
+        max-width: ~'calc(640px + (@{feedItemMarginLeftRight} * 2))';
+      }
+      width: 100%;
+      .middle-pane {
+        position: relative;
+        .flexbox;
+        .flex-direction(column);
+        .flex-wrap(nowrap);
+        .justify-content(flex-start);
+        .align-content(stretch);
+        .align-items(stretch);
+
+        .middle-pane-container {
+          .flexbox;
+          .flex-grow;
+          min-width: ~'calc(500px - (@{feedItemMarginLeftRight} * 2))';
+          max-width: ~'calc(800px - (@{feedItemMarginLeftRight} * 2))';
+          width: 800px;
+          padding: 0 @feedItemMarginLeftRight;
+          margin: 40px auto 0;
+        }
+      }
+    }
+  }
+
+  .title-bar {
+    .flex-shrink(0);
+    .text-h2;
+    height: @headerHeight;
+    .flexbox;
+    background: @charcoal;
+    .text-charcoal25;
+    .black-drop-shadow;
+    -webkit-app-region: drag;
+    .button {
+      -webkit-app-region: no-drag;
+    }
+    .title-bar-inner {
+      cursor: default;
+      .flexbox;
+      width: 100%;
+      border-bottom: 1px solid fade(black, 50%);
+      &.window-logo {
+        .flexbox;
+        .align-items(center);
+        min-width: 400px;
+        max-width: 400px;
+        > .icon-logo {
+          .logo-circuit-logotype;
+          .flex-shrink(0);
+        }
+        .domain-name {
+          .align-items(center);
+          // The Circuit logo has a lot of empty space in it, so we're shifting the
+          // domain name to overlap the logo. The end result should be a 10px separation between them
+          margin-left: -10px;
+          margin-top: 5px;
+          .text-subHeading;
+          .text-white;
+          .text-overflow();
+        }
+      }
+      &.window-controls {
+        .justify-content(flex-end);
+        .flexbox;
+        .align-items(center);
+        img {
+          padding-left: 10px;
+          &.user-img {
+            padding-left: 0;
+          }
+        }
+        > .button {
+          display: inline-block;
+          .text-white;
+        }
+        .title-bar-buttons {
+          .flexbox;
+          .align-items(center);
+        }
+      }
+    }
+  }
+
+  .conversation-feed {
+    .feed-list {
+      .flex-order(0);
+      .flex(1 1 0px);
+      .align-self(auto);
+    }
+    .bottom-area {
+      .flex-direction(column);
+      .flex-order(0);
+      .flex(0 0 auto);
+      .align-self(auto);
+      z-index: @zindex-bottom-area;
+    }
+  }
+}
+
+.mapCanvas {
+  height: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.flex-1 {
+  .flex(1 auto);
+}
+
+.flex-1-0 {
+  .flex(1 1 0px);
+}
+
+//Changes for new-ui and rounded avatars.
+//NOTE: Will be merged to the above code when old UI will be replaced
+
+//NEW CONVERSATION MODEL - START
+.new-ui {
+  .large-list-background {
+    background-image: none;
+    background-color: @lightGrey;
+  }
+
+  .main-window > .layout-inner > .right-list {
+    .feed-list .itemlist {
+      .list-item {
+        min-width: ~'calc(465px + (@{feedItemMarginLeftRight} * 2))';
+        width: ~'calc(80% + (@{feedItemMarginLeftRight} * 2))';
+        max-width: ~'calc(705px + (@{feedItemMarginLeftRight} * 2))';
+        margin: auto;
+      }
+      .comment-item-body {
+        width: ~'calc(80% - 108px + (@{feedItemMarginLeftRight} * 2))';
+      }
+    }
+    .bottom-area-width {
+      min-width: ~'calc(400px + (@{feedItemMarginLeftRight} * 2) - 45px)';
+      width: ~'calc(80% + (@{feedItemMarginLeftRight} * 2) - 45px)';
+      max-width: ~'calc(705px + (@{feedItemMarginLeftRight} * 2) - 45px)';
+    }
+  }
+
+  .message-editor .chat-frame .bottom-margin {
+    margin-left: 65px;
+    margin-right: 0px;
+  }
+
+  .title-bar {
+        .title-bar-inner {
+        &.window-controls {
+          img {
+            .border-radius(50%);
+          }
+        }
+     }
+  }
+}
+
+//NEW CONVERSATION MODEL - END
+
+
+
+

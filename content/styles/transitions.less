@@ -1,0 +1,342 @@
+// Transitions Animations
+// --------------
+
+.animateInItem-keyframes {
+  0% {
+    opacity: 0;
+    height: 0;
+    .transform(scale3d(0.5, 0.5, 1));
+    margin: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animateInItem {
+  .animateInItem-keyframes;
+}
+
+@-moz-keyframes animateInItem {
+  .animateInItem-keyframes;
+}
+
+@keyframes animateInItem {
+  .animateInItem-keyframes;
+}
+
+.accordion-keyframes {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: -5px;
+  }
+  70% {
+    margin-top: 0px;
+  }
+}
+
+@-webkit-keyframes accordion {
+  .accordion-keyframes;
+}
+
+@-moz-keyframes accordion {
+  .accordion-keyframes;
+}
+
+@keyframes accordion {
+  .accordion-keyframes;
+}
+//frogOverwrites - BEGIN
+
+.animateInItem-keyframes {
+  0% {
+    opacity: 0;
+    height: 0;
+    .transform(scale3d(0.5, 0.5, 1));
+    margin: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 80px;  // wosmo roger: hardcode height for better transition, should use variable;
+  }
+}
+
+// animation
+@-webkit-keyframes animateInItem {
+  .animateInItem-keyframes;
+}
+
+@-moz-keyframes animateInItem {
+  .animateInItem-keyframes;
+}
+
+@keyframes animateInItem {
+  .animateInItem-keyframes;
+}
+
+.animateInBar-keyframes {
+  0% {
+    opacity: 0;
+    height: 0;
+    .transform(scale3d(0.5, 0.5, 1));
+    margin: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 30px;  // wosmo roger: hardcode height for better transition, should use variable;
+  }
+}
+
+// animation
+@-webkit-keyframes animateInBar {
+  .animateInBar-keyframes;
+}
+
+@-moz-keyframes animateInBar {
+  .animateInBar-keyframes;
+}
+
+@keyframes animateInBar {
+  .animateInBar-keyframes;
+}
+
+.glow-animation {
+  .animation-name(glow);
+  .animation-timing-function(ease-in);
+  .animation-iteration-count(infinite);
+  .animation-direction(alternate);
+  .animation-duration(500ms);
+}
+
+.glow-keyframes {
+  0% {
+    .box-shadow(0 0 10px @linkLightGreen);
+  }
+  100% {
+    .box-shadow(0 0 20px @linkLightGreen);
+  }
+}
+
+@-webkit-keyframes glow {
+  .glow-keyframes;
+}
+
+@-moz-keyframes glow {
+  .glow-keyframes;
+}
+
+@keyframes glow {
+  .glow-keyframes;
+}
+
+/////////// ringing animation - START///////////
+.ringing-animation {
+   >div {
+    display: inline-block;
+    .border-radius(100%);
+    .animation(ringing 1s infinite ease-in-out);
+    /* Prevent first frame from flickering when animation starts */
+     .animation-fill-mode(both);
+     &.one {
+       .animation-delay(-0.32s);
+     }
+     &.two {
+       .animation-delay(-0.16s);
+     }
+  }
+  &.small >div {
+    width: 4px;
+    height: 4px;
+    margin: auto 1px;
+  }
+  &.medium >div {
+    width: 6px;
+    height: 6px;
+    margin: auto 2px;
+  }
+  &.light-background >div {
+    background-color: @charcoal50;
+    .box-shadow(0px 1px 0px 0 fade(white, 50%));
+  }
+  &.dark-background >div {
+    background-color: @white;
+    .box-shadow(0px 0 3px 0 fade(black, 30%));
+  }
+  &.reversed >div {
+    &.one {
+      .animation-delay(0s);
+    }
+    &.three {
+      .animation-delay(-0.32s);
+    }
+  }
+}
+
+.ringing-keyframes {
+  0%, 80%, 100% { .transform(scale(0.0)) }
+  40% { .transform(scale(1.0)) }
+}
+
+@-webkit-keyframes ringing {
+  .ringing-keyframes;
+}
+
+@-moz-keyframes ringing {
+  .ringing-keyframes;
+}
+
+@keyframes ringing {
+  .ringing-keyframes;
+}
+
+/////////// ringing animation - END ///////////
+
+/////////// spinner animation - START ///////////
+.icon-progress-spinner-s {
+  // http://stackoverflow.com/questions/13176746/css-keyframe-animation-cpu-usage-is-high-should-it-be-this-way
+  .transform(translateZ(0));
+  .icon-progress-spinner-s-0;
+  .animation(connecting-small 1s linear infinite);
+}
+
+.connecting-small-keyframes {
+  0%      { .icon-progress-spinner-s-0;  } 6.665%  { .icon-progress-spinner-s-0;  }
+  6.666%  { .icon-progress-spinner-s-1;  } 13.332% { .icon-progress-spinner-s-1;  }
+  13.333% { .icon-progress-spinner-s-2;  } 19.999% { .icon-progress-spinner-s-2;  }
+  20%     { .icon-progress-spinner-s-3;  } 26.665% { .icon-progress-spinner-s-3;  }
+  26.666% { .icon-progress-spinner-s-4;  } 33.332% { .icon-progress-spinner-s-4;  }
+  33.333% { .icon-progress-spinner-s-5;  } 39.999% { .icon-progress-spinner-s-5;  }
+  40%     { .icon-progress-spinner-s-6;  } 46.665% { .icon-progress-spinner-s-6;  }
+  46.666% { .icon-progress-spinner-s-7;  } 53.332% { .icon-progress-spinner-s-7;  }
+  53.333% { .icon-progress-spinner-s-8;  } 59.999% { .icon-progress-spinner-s-8;  }
+  60%     { .icon-progress-spinner-s-9;  } 66.665% { .icon-progress-spinner-s-9;  }
+  66.666% { .icon-progress-spinner-s-10; } 73.332% { .icon-progress-spinner-s-10; }
+  73.333% { .icon-progress-spinner-s-11; } 79.999% { .icon-progress-spinner-s-11; }
+  80%     { .icon-progress-spinner-s-12; } 86.665% { .icon-progress-spinner-s-12; }
+  86.666% { .icon-progress-spinner-s-13; } 93.332% { .icon-progress-spinner-s-13; }
+  93.333% { .icon-progress-spinner-s-14; } 100%    { .icon-progress-spinner-s-14; }
+}
+
+@-webkit-keyframes connecting-small {
+  .connecting-small-keyframes;
+}
+
+@-moz-keyframes connecting-small {
+  .connecting-small-keyframes;
+}
+
+@keyframes connecting-small {
+  .connecting-small-keyframes;
+}
+
+.icon-progress-spinner-m {
+  // http://stackoverflow.com/questions/13176746/css-keyframe-animation-cpu-usage-is-high-should-it-be-this-way
+  .transform(translateZ(0));
+  .icon-progress-spinner-m-0;
+  .animation(connecting-medium 1s linear infinite);
+}
+.connecting-medium-keyframes {
+  0%      { .icon-progress-spinner-m-0;  } 6.665%  { .icon-progress-spinner-m-0;  }
+  6.666%  { .icon-progress-spinner-m-1;  } 13.332% { .icon-progress-spinner-m-1;  }
+  13.333% { .icon-progress-spinner-m-2;  } 19.999% { .icon-progress-spinner-m-2;  }
+  20%     { .icon-progress-spinner-m-3;  } 26.665% { .icon-progress-spinner-m-3;  }
+  26.666% { .icon-progress-spinner-m-4;  } 33.332% { .icon-progress-spinner-m-4;  }
+  33.333% { .icon-progress-spinner-m-5;  } 39.999% { .icon-progress-spinner-m-5;  }
+  40%     { .icon-progress-spinner-m-6;  } 46.665% { .icon-progress-spinner-m-6;  }
+  46.666% { .icon-progress-spinner-m-7;  } 53.332% { .icon-progress-spinner-m-7;  }
+  53.333% { .icon-progress-spinner-m-8;  } 59.999% { .icon-progress-spinner-m-8;  }
+  60%     { .icon-progress-spinner-m-9;  } 66.665% { .icon-progress-spinner-m-9;  }
+  66.666% { .icon-progress-spinner-m-10; } 73.332% { .icon-progress-spinner-m-10; }
+  73.333% { .icon-progress-spinner-m-11; } 79.999% { .icon-progress-spinner-m-11; }
+  80%     { .icon-progress-spinner-m-12; } 86.665% { .icon-progress-spinner-m-12; }
+  86.666% { .icon-progress-spinner-m-13; } 93.332% { .icon-progress-spinner-m-13; }
+  93.333% { .icon-progress-spinner-m-14; } 100%    { .icon-progress-spinner-m-14; }
+}
+
+@-webkit-keyframes connecting-medium {
+  .connecting-medium-keyframes;
+}
+
+@-moz-keyframes connecting-medium {
+  .connecting-medium-keyframes;
+}
+
+@keyframes connecting-medium {
+  .connecting-medium-keyframes;
+}
+
+.icon-progress-spinner-l {
+  // http://stackoverflow.com/questions/13176746/css-keyframe-animation-cpu-usage-is-high-should-it-be-this-way
+  .transform(translateZ(0));
+  .icon-progress-spinner-l-0;
+  .animation(connecting-large 1s linear infinite);
+}
+
+.connecting-large-keyframes {
+  0%      { .icon-progress-spinner-l-0;  } 6.665%  { .icon-progress-spinner-l-0;  }
+  6.666%  { .icon-progress-spinner-l-1;  } 13.332% { .icon-progress-spinner-l-1;  }
+  13.333% { .icon-progress-spinner-l-2;  } 19.999% { .icon-progress-spinner-l-2;  }
+  20%     { .icon-progress-spinner-l-3;  } 26.665% { .icon-progress-spinner-l-3;  }
+  26.666% { .icon-progress-spinner-l-4;  } 33.332% { .icon-progress-spinner-l-4;  }
+  33.333% { .icon-progress-spinner-l-5;  } 39.999% { .icon-progress-spinner-l-5;  }
+  40%     { .icon-progress-spinner-l-6;  } 46.665% { .icon-progress-spinner-l-6;  }
+  46.666% { .icon-progress-spinner-l-7;  } 53.332% { .icon-progress-spinner-l-7;  }
+  53.333% { .icon-progress-spinner-l-8;  } 59.999% { .icon-progress-spinner-l-8;  }
+  60%     { .icon-progress-spinner-l-9;  } 66.665% { .icon-progress-spinner-l-9;  }
+  66.666% { .icon-progress-spinner-l-10; } 73.332% { .icon-progress-spinner-l-10; }
+  73.333% { .icon-progress-spinner-l-11; } 79.999% { .icon-progress-spinner-l-11; }
+  80%     { .icon-progress-spinner-l-12; } 86.665% { .icon-progress-spinner-l-12; }
+  86.666% { .icon-progress-spinner-l-13; } 93.332% { .icon-progress-spinner-l-13; }
+  93.333% { .icon-progress-spinner-l-14; } 100%    { .icon-progress-spinner-l-14; }
+}
+
+@-webkit-keyframes connecting-large {
+ .connecting-large-keyframes;
+}
+
+@-moz-keyframes connecting-large {
+  .connecting-large-keyframes;
+}
+
+@keyframes connecting-large {
+ .connecting-large-keyframes;
+}
+
+.icon-searchresults-progress-spinner-m {
+  // http://stackoverflow.com/questions/13176746/css-keyframe-animation-cpu-usage-is-high-should-it-be-this-way
+  .transform(translateZ(0));
+  .icon-searchresults-progress-spinner-m-0;
+  .animation(connecting-search-medium 1s linear infinite);
+}
+
+.connecting-search-medium-keyframes {
+  0%      { .icon-searchresults-progress-spinner-m-0;  } 6.665%  { .icon-searchresults-progress-spinner-m-0;  }
+  6.666%  { .icon-searchresults-progress-spinner-m-1;  } 13.332% { .icon-searchresults-progress-spinner-m-1;  }
+  13.333% { .icon-searchresults-progress-spinner-m-2;  } 19.999% { .icon-searchresults-progress-spinner-m-2;  }
+  20%     { .icon-searchresults-progress-spinner-m-3;  } 26.665% { .icon-searchresults-progress-spinner-m-3;  }
+  26.666% { .icon-searchresults-progress-spinner-m-4;  } 33.332% { .icon-searchresults-progress-spinner-m-4;  }
+  33.333% { .icon-searchresults-progress-spinner-m-5;  } 39.999% { .icon-searchresults-progress-spinner-m-5;  }
+  40%     { .icon-searchresults-progress-spinner-m-6;  } 46.665% { .icon-searchresults-progress-spinner-m-6;  }
+  46.666% { .icon-searchresults-progress-spinner-m-7;  } 53.332% { .icon-searchresults-progress-spinner-m-7;  }
+  53.333% { .icon-searchresults-progress-spinner-m-8;  } 59.999% { .icon-searchresults-progress-spinner-m-8;  }
+  60%     { .icon-searchresults-progress-spinner-m-9;  } 66.665% { .icon-searchresults-progress-spinner-m-9;  }
+  66.666% { .icon-searchresults-progress-spinner-m-10; } 73.332% { .icon-searchresults-progress-spinner-m-10; }
+  73.333% { .icon-searchresults-progress-spinner-m-11; } 79.999% { .icon-searchresults-progress-spinner-m-11; }
+  80%     { .icon-searchresults-progress-spinner-m-12; } 86.665% { .icon-searchresults-progress-spinner-m-12; }
+  86.666% { .icon-searchresults-progress-spinner-m-13; } 93.332% { .icon-searchresults-progress-spinner-m-13; }
+  93.333% { .icon-searchresults-progress-spinner-m-14; } 100%    { .icon-searchresults-progress-spinner-m-14; }
+}
+
+@-webkit-keyframes connecting-search-medium {
+  .connecting-search-medium-keyframes;
+}
+
+@-moz-keyframes connecting-search-medium {
+  .connecting-search-medium-keyframes;
+}
+
+@keyframes connecting-search-medium {
+  .connecting-search-medium-keyframes;
+}

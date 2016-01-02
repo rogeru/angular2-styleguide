@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Getting Started",
+    "items": [
+      { "name": "Circuit Styleguide", "url": "documentation/home.md" },
+      { "name": "Experience & Design Principals", "url": "documentation/experience-principals.md" },
+      { "name": "Tone of Voice", "url": "documentation/tone-of-voice.md" }
+    ]
+  },
+  {
+    "name": "Circuit",
+    "items": [
+      { "name": "Avatars", "url": "content/styles/avatars.less" },
+      { "name": "Backgrounds", "url": "" },
+      { "name": "Buttons", "url": "content/styles/buttons.less" },
+      { "name": "Colors", "url": "content/styles/colors.less" },
+      { "name": "Dropdowns and Menus", "url": "content/styles/dropdowns.less" },
+      { "name": "Form Elements", "url": "content/styles/form-elements.less" },
+      { "name": "Icons and Assets", "url": "content/styles/icons-assets.less" },
+      { "name": "Lightbox", "url": "" },
+      { "name": "Links", "url": "content/styles/links.less" },
+      { "name": "Modals", "url": "content/styles/modals.less" },
+      { "name": "Notifications", "url": "" },
+      { "name": "Popovers", "url": "content/styles/popovers.less" },
+      { "name": "Tabs", "url": "content/styles/tabs.less" },
+      { "name": "Tooltips", "url": "content/styles/tooltips.less" },
+      { "name": "Typography", "url": "content/styles/fonts.less" }
+    ]
+  }
+]

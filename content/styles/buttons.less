@@ -1,0 +1,590 @@
+/*
+# Buttons
+Buttons are convenient tools when you need more traditional actions. To that end, Foundation has many easy to use button styles that you can customize or override to fit your needs.
+
+###### Visual Design Resources
+<img src="/images/psd-file.png" style="height: 20px;vertical-align: bottom;">
+[20150323_Buttons_web.psd](http://internal.unify.com/circuit/styleguide/20150323_Buttons_web.psd)
+
+###### Less Definitions
+<img src="/images/less-file.png" style="height: 20px;vertical-align: bottom;">
+[buttons.less](/content/styles/buttons.less)
+
+###### Depends on
+[colors.less](/content/styles/colors.less), [variables.less](/content/styles/variables.less), [fonts.less](/content/styles/fonts.less)
+
+***
+
+## General rules
+
+### Position
+Primary buttons should abe placed in the left-most position.
+
+### Spacing
+Buttons should be spaced 10px from eachother.
+Buttons are generally spaced 10px from form fields.
+
+![](/images/web/buttons_spacing_1.png)
+
+### Loading indicator
+If there is a delay to any action related to the button, a progress indicator will appear to the right of the button. If there are multiple buttons, the progress indicator will appear to the right of the furthest right button.
+
+![](/images/web/buttons_spacing_2.png)
+
+***
+
+*/
+
+
+
+// BUTTON STYLES
+// ----------------------------------------------------------------------------------------------------------------------------------------
+
+@button-padding-top-small: 0px;
+@button-padding-bottom-small: 0px;
+@button-padding-top-medium: 2px;
+@button-padding-bottom-medium: 2px;
+@button-padding-top-large: 4.5px;
+@button-padding-bottom-large: 4.5px;
+
+@button-light-tertiary-border: 1px solid fade(black, 15%);
+@button-light-tertiary-box-shadow: 0px 1px 0px 0px fade(@white, 60%);
+@button-light-tertiary-bg: @white;
+.button-light-tertiary-bg-image() { .linear-gradient(fade(@white, 6%), fade(black, 6%), @button-light-tertiary-bg); }
+.button-light-tertiary-bg-image-hover() { .linear-gradient(fade(@white, 8%), fade(black, 8%), @button-light-tertiary-bg); }
+.button-light-tertiary-bg-image-active() { .linear-gradient(fade(black, 8%), fade(@white, 8%), @button-light-tertiary-bg); }
+.button-light-tertiary-disabled-bg-image() { .linear-gradient(fade(@white, 6%), fade(black, 6%), @button-light-tertiary-bg); }
+
+
+//ACTION BUTTONS VARIABLES and MIXINS
+//-------------------------------------------------------------------------------------------------------------------------------------------
+@lightShadowNormal: ~"0 1px 0 0 rgba(255, 255, 255, 1), inset 0 0px 0 1px rgba(0, 0, 0, 0.15)";
+@lightShadowHover: ~"0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 0px 0 1px rgba(0, 0, 0, 0.15)";
+@lightShadowActive: ~"0 1px 0 0 rgba(255, 255, 255, 1), inset 0 0px 0 1px rgba(0, 0, 0, 0.15), inset 0 1px 0 0 rgba(0, 0, 0, 0.4)";
+@lightShadowDisabled: ~"0 1px 0 0 rgba(255, 255, 255, 1), inset 0 0px 0 1px rgba(0, 0, 0, 0.15)";
+.lightGradientNormal() { .linear-gradient(fade(@white, 6%), fade(black, 6%), transparent); }
+.lightGradientHover() { .linear-gradient(fade(@white, 10%), fade(black, 10%), transparent); }
+.lightGradientActive() { .linear-gradient(fade(black, 10%), fade(@white, 10%), transparent); }
+.lightGradientDisabled() { .linear-gradient(fade(@white, 6%), fade(black, 6%), transparent); }
+
+@lightGreenShadowNormal: ~"0 1px 0 0 rgba(255, 255, 255, 1), inset 0 0px 0 1px rgba(73, 112, 52, 0.6)";
+@lightGreenShadowHover: ~"0 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 0px 0 1px rgba(73, 112, 52, 0.6)";
+@lightGreenShadowActive: ~"0 1px 0 0 rgba(255, 255, 255, 1), inset 0 0px 0 1px rgba(73, 112, 52, 0.6), inset 0 1px 0 0 rgba(0, 0, 0, 0.25)";
+.lightGreenGradientNormal() { .linear-gradient(fade(@white, 0%), fade(black, 10%), transparent); }
+.lightGreenGradientHover() { .linear-gradient(fade(@white, 0%), fade(black, 20%), transparent); }
+.lightGreenGradientActive() { .linear-gradient(fade(black, 20%), fade(@white, 0%), transparent); }
+
+@charcoal75ShadowNormal: ~"0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 0px 0 1px #424242";
+@charcoal75ShadowHover: ~"0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 0px 0 1px #424242";
+@charcoal75ShadowActive: ~"0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 0px 0 1px #424242, inset 0 1px 0 0 rgba(0, 0, 0, 0.4)";
+@charcoal75ShadowDisabled: ~"0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 0px 0 1px rgba(0, 0, 0, 0.25)";
+.charcoal75GradientNormal() { .linear-gradient(fade(black, 0%), fade(black, 20%), transparent); }
+.charcoal75GradientHover() { .linear-gradient(fade(black, 0%), fade(black, 30%), transparent); }
+.charcoal75GradientActive() { .linear-gradient(fade(black, 20%), fade(black, 0%), transparent); }
+.charcoal75GradientDisabled() { .linear-gradient(fade(@charcoal75, 20%), fade(black, 20%), transparent); }
+
+@charcoalShadowNormal: ~"0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 0px 0 1px rgba(32, 37, 41, 1)";
+@charcoalShadowHover: ~"0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 0px 0 1px rgba(24, 28, 31, 1)";
+@charcoalShadowActive: ~"0 1px 0 0 rgba(255, 255, 255, 0.1), inset 0 0px 0 1px rgba(24, 28, 31, 1), inset 0 1px 0 0 rgba(0, 0, 0, 0.4)";
+@charcoalShadowDisabled: ~"0 1px 0 0 rgba(255, 255, 255, 0.15), inset 0 0px 0 1px rgba(0, 0, 0, 0.3)";
+.charcoalGradientNormal() { .linear-gradient(fade(black, 0%), fade(black, 25%), transparent); }
+.charcoalGradientHover() { .linear-gradient(fade(black, 0%), fade(black, 30%), transparent); }
+.charcoalGradientActive() { .linear-gradient(fade(black, 20%), fade(black, 0%), transparent); }
+.charcoalGradientDisabled() { .linear-gradient(fade(@white, 20%), fade(@white, 0%), transparent); }
+
+
+.action-button-light {
+  .lightGradientNormal(); background-color: @white; .box-shadow(@lightShadowNormal);
+  &:hover { .lightGradientHover(); background-color: @white; .box-shadow(@lightShadowHover); }
+  &:active { .lightGradientActive(); background-color: @white; .box-shadow(@lightShadowActive); }
+  &.disabled { .lightGradientDisabled(); background-color: @white; .box-shadow(@lightShadowDisabled); }
+}
+.action-button-light-green {
+  .lightGradientNormal(); background-color: @white; .box-shadow(@lightShadowNormal);
+  &:hover { .lightGreenGradientHover(); background-color: @green; .box-shadow(@lightGreenShadowHover); }
+  &:active { .lightGreenGradientActive(); background-color: @green; .box-shadow(@lightGreenShadowActive); }
+  &.disabled { .lightGradientDisabled(); background-color: @white; .box-shadow(@lightShadowDisabled); }
+}
+.action-button-green {
+  .lightGreenGradientNormal(); background-color: @green; .box-shadow(@lightGreenShadowNormal);
+  &:hover { .lightGreenGradientHover(); background-color: @green; .box-shadow(@lightGreenShadowHover); }
+  &:active { .lightGreenGradientActive(); background-color: @green; .box-shadow(@lightGreenShadowActive); }
+  &.disabled {.lightGradientDisabled(); background-color: @white; .box-shadow(@lightShadowDisabled); .text-charcoal25;}
+}
+.action-button-green-charcoal75 {
+  .charcoal75GradientNormal(); background-color: @green; .box-shadow(@charcoal75ShadowNormal);
+  &:hover { .charcoal75GradientHover(); background-color: @green; .box-shadow(@charcoal75ShadowHover); }
+  &:active { .charcoal75GradientActive(); background-color: @green; .box-shadow(@charcoal75ShadowActive); }
+  &.disabled { .charcoal75GradientDisabled(); background-color: @charcoal75; .box-shadow(@charcoal75ShadowDisabled); }
+}
+.action-button-red-charcoal75 {
+  .charcoal75GradientNormal(); background-color: @red; .box-shadow(@charcoal75ShadowNormal);
+  &:hover { .charcoal75GradientHover(); background-color: @red; .box-shadow(@charcoal75ShadowHover); }
+  &:active { .charcoal75GradientActive(); background-color: @red; .box-shadow(@charcoal75ShadowActive); }
+  &.disabled { .charcoal75GradientDisabled(); background-color: @charcoal75; .box-shadow(@charcoal75ShadowDisabled); }
+}
+.action-button-charcoal75 {
+  .charcoal75GradientNormal(); background-color: @charcoal75; .box-shadow(@charcoal75ShadowNormal);
+  &:hover { .charcoal75GradientHover(); background-color: @charcoal75; .box-shadow(@charcoal75ShadowHover); }
+  &:active { .charcoal75GradientActive(); background-color: @charcoal75; .box-shadow(@charcoal75ShadowActive); }
+  &.disabled { .charcoal75GradientDisabled(); background-color: @charcoal75; .box-shadow(@charcoal75ShadowDisabled); }
+}
+.action-button-green-charcoal {
+  .charcoalGradientNormal(); background-color: @green; .box-shadow(@charcoalShadowNormal);
+  &:hover { .charcoalGradientHover(); background-color: @green; .box-shadow(@charcoalShadowHover); }
+  &:active { .charcoalGradientActive(); background-color: @green; .box-shadow(@charcoalShadowActive); }
+  &.disabled { .charcoalGradientDisabled(); background-color: @charcoal; .box-shadow(@charcoalShadowDisabled); }
+}
+.action-button-red-charcoal {
+  .charcoalGradientNormal(); background-color: @red; .box-shadow(@charcoalShadowNormal);
+  &:hover { .charcoalGradientHover(); background-color: @red; .box-shadow(@charcoalShadowHover); }
+  &:active { .charcoalGradientActive(); background-color: @red; .box-shadow(@charcoalShadowActive); }
+  &.disabled { .charcoalGradientDisabled(); background-color: @charcoal; .box-shadow(@charcoalShadowDisabled); }
+}
+.action-button-charcoal {
+  .charcoalGradientNormal(); background-color: @charcoal; .box-shadow(@charcoalShadowNormal);
+  &:hover { .charcoalGradientHover(); background-color: @charcoal; .box-shadow(@charcoalShadowHover); }
+  &:active { .charcoalGradientActive(); background-color: @charcoal; .box-shadow(@charcoalShadowActive); }
+  &.disabled { .charcoalGradientDisabled(); background-color: @charcoal; .box-shadow(@charcoalShadowDisabled); }
+}
+// Custom Buttons
+.action-button {
+  .flexbox;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  .text-overflow();
+  height: 26px;
+  min-width: 26px;
+  padding: 7px;
+  border-radius: 26px;
+  .text-h3;
+  .black-drop-shadow;
+  &.small {
+    width: 16px;
+    height: 16px;
+    min-height: 16px;
+    min-width: 16px;
+  }
+  &.xsmall {
+    width: 10px;
+    height: 10px;
+    min-height: 10px;
+    min-width: 10px;
+  }
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  &.text-button {
+    padding: 6.5px 17px 7.5px;
+  }
+  &.icon-text-button {
+    padding: 6.5px 15px 7.5px 12px;
+    > div:first-child {
+      margin-right: 4px;
+    }
+  }
+  &.light { .action-button-light(); }
+  &.light-green { .action-button-light-green; }
+  &.green { .action-button-green; .text-white; }
+  &.green-charcoal75 { .action-button-green-charcoal75; }
+  &.red-charcoal75 { .action-button-red-charcoal75; }
+  &.charcoal75 { .action-button-charcoal75; }
+  &.green-charcoal { .action-button-green-charcoal; }
+  &.red-charcoal { .action-button-red-charcoal; }
+  &.charcoal { .action-button-charcoal; }
+  &.dropdown-btn {
+    .action-button-green-charcoal75;
+    overflow: visible; // Needed so dropdown is visible
+    .dropdown {
+      background-color: transparent;
+      background-image: none;
+      .box-shadow(none);
+      border: 0 none;
+     .text {
+        .text-white;
+        .black-drop-shadow;
+        padding-left: 15px;
+      }
+      .arrow-wrapper {
+        padding: 8px 10px 0px 3px;
+        .arrow {
+          .icon-general-arrow-down-xs-inverted2;
+        }
+      }
+      .dropdown-menu {
+        .border-radius(5px 5px 5px 5px);
+      }
+      ul li:first-child:hover {
+        .border-radius(5px 5px); // Override dropdown's style, since we have rounded borders
+      }
+    }
+  }
+}
+
+
+/*
+## Standard buttons
+
+### Options available for standard buttons
+In HTML use buttons with the following pattern:
+
+`<button class="[small|medium|large] [primary|secondary|tertiary] [light-background|dark-background]">Text</button>`
+
+```
+<div>
+  <button class="button small primary light-background">Small Primary</button>
+  <button class="button small secondary light-background">Small Secondary</button>
+  <button class="button small tertiary light-background">Small Tertiary</button>
+</div>
+<div>
+  <button class="button medium primary light-background">Medium Primary</button>
+  <button class="button medium secondary light-background">Medium Secondary</button>
+  <button class="button medium tertiary light-background">Medium Teritary</button>
+</div>
+<div>
+  <button class="button large primary light-background">Large Primary</button>
+  <button class="button large secondary light-background">Large Secondary</button>
+  <button class="button large tertiary light-background">Large Teritary</button>
+</div>
+<div>
+  <button class="button large primary light-background disabled">Primary Disabled</button>
+  <button class="button large secondary light-background disabled">Secondary Disabled</button>
+  <button class="button large tertiary light-background disabled">Teritary Disabled</button>
+</div>
+```
+
+## Round buttons
+
+### Options available for round buttons
+
+```
+  <div class="action-button small text-button green">Small</div>
+  <div class="action-button disabled text-button charcoal" style="width:100px">Disabled Charcoal</div>
+```
+ */
+
+// A button with no dimensions. This is used when display:none causes side-effects
+// --------------------------------------------------
+button.not-visible {
+  border: 0 none;
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+
+
+////////////////////////////////////////////// Buttons ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Options available for buttons
+//
+// in HTML use buttons with the following pattern "button (SIZE: small, medium, large) (TYPE: primary, secondary, tertiary) (BACKGROUND: light-background, dark-background)"
+// e.g. class="button medium primary dark-background".
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+button {
+  border: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+.button {
+  border: none;
+  .border-radius(3px);
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0;
+
+  &:hover, &:focus {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  &.small {
+    .text-small;
+    min-width: 60px;
+    padding-top: @button-padding-top-small;
+    padding-bottom: @button-padding-bottom-small;
+
+  }
+  &.medium {
+    .text-h3;
+    min-width: 70px;
+    padding-top: @button-padding-top-medium;
+    padding-bottom: @button-padding-bottom-medium;
+  }
+  &.large {
+    .text-h3;
+    min-width: 80px;
+    padding-top: @button-padding-top-large;
+    padding-bottom: @button-padding-bottom-large;
+  }
+  &.primary {
+    .text-white;
+    .green-drop-shadow;
+    .linear-gradient(@startColor: #8cc646, @endColor: #7eb944, @fallbackSolidColor: #8cc646);
+    &:hover, &:focus {
+      .linear-gradient(@startColor: #8fce44, @endColor: #88cd48, @fallbackSolidColor: #8fce44);
+    }
+    &:active {
+      .linear-gradient(@startColor: #72a73c, @endColor: #8ac345, @fallbackSolidColor: #72a73c);
+    }
+    &.light-background {
+      border: 1px solid fade(@darkGreen, 60%);
+      .box-shadow(0px 1px 0px 0px fade(@white, 60%));
+      &:active {
+        border: 1px solid fade(@darkGreen, 80%);
+      }
+      &.disabled {
+        pointer-events: none;
+        border: 1px solid fade(black, 15%);
+        .linear-gradient(@startColor: fade(@white, 6%), @endColor: fade(@black, 6%), @fallbackSolidColor: @white);
+        .text-charcoal25;
+        text-align: center;
+        &:hover, &:focus {
+          .linear-gradient(@startColor: fade(@white, 6%), @endColor: fade(@black, 6%), @fallbackSolidColor: @white);
+        }
+      }
+    }
+    &.dark-background {
+      @shadow: inset 0 1px 0 0 fade(@white, 20%), 0 0 1px 0 fade(black, 20%);
+      .box-shadow(@shadow);
+      &:active {
+        .box-shadow(none);
+      }
+    }
+  }
+  &.secondary {
+    .text-white;
+    .black-drop-shadow;
+    &.light-background {
+      .linear-gradient(@startColor: fade(@white, 10%), @endColor: fade(black, 10%), @fallbackSolidColor: @charcoal50);
+      border: 1px solid fade(black, 60%);
+      .box-shadow(0px 1px 0px 0px fade(@white, 60%));
+      &:hover, &:focus{
+        .linear-gradient(@startColor: fade(@white, 15%), @endColor: fade(black, 15%), @fallbackSolidColor: @charcoal50);
+      }
+      &:active {
+        .linear-gradient(@startColor: fade(@white, 8%), @endColor: fade(black, 8%), @fallbackSolidColor: @charcoal50);
+      }
+    }
+    &.dark-background {
+      .linear-gradient(fade(@white, 4%), fade(black, 4%), @charcoal75);
+      border: 1px solid fade(black, 20%);
+      .box-shadow(inset 0 1px 0 0 fade(@white, 5%));
+      &:hover, &:focus {
+        .linear-gradient(fade(@white, 10%), fade(black, 10%), @charcoal75);
+      }
+      &:active {
+        .linear-gradient(fade(@black, 8%), fade(@white, 8%), @charcoal75);
+        .box-shadow(none);
+      }
+    }
+  }
+  &.tertiary {
+    &.light-background {
+      .text-charcoal75;
+      border: @button-light-tertiary-border;
+      .box-shadow(@button-light-tertiary-box-shadow);
+      .button-light-tertiary-bg-image();
+      &:hover {
+        .button-light-tertiary-bg-image-hover();
+      }
+      &:active {
+        .button-light-tertiary-bg-image-active();
+      }
+      &.disabled {
+        .text-charcoal25;
+        text-align: center;
+        cursor: default;
+        &:hover {
+          .button-light-tertiary-disabled-bg-image();
+        }
+      }
+    }
+  }
+}
+
+
+
+/*
+
+## Split buttons
+
+### Options available for spli tbuttons
+
+```
+  <div class="split-btn large pull-left col-auto">
+    todo
+  </div>
+```
+
+ */
+
+//Split Buttons
+.split-btn {
+
+  &.small {
+    .text {
+      padding-top: @button-padding-top-small;
+      padding-bottom: @button-padding-bottom-small;
+    }
+  }
+
+  &.medium {
+    .text {
+      padding-top: @button-padding-top-medium + 1px;
+      padding-bottom: @button-padding-bottom-medium + 1px;
+    }
+  }
+  &.large {
+    .text {
+      padding-top: @button-padding-top-large + 1px;
+      padding-bottom: @button-padding-bottom-large + 1px;
+    }
+  }
+
+  .dropdown {
+
+    .dropdown-toggle {
+      border: none;
+      padding: 0;
+      .arrow {
+        margin-left: 0;
+        &.disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+    .flexbox;
+    .text, .menu-item {
+      .text-h3;
+    }
+
+    .arrow-wrapper {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .menu-item {
+      .text-charcoal50;
+    }
+    .text {
+      border-right: 1px solid fade(black, 8%);
+      padding: 6.5px 18px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &.light {
+      border: @button-light-tertiary-border;
+      .box-shadow(@button-light-tertiary-box-shadow);
+      .button-light-tertiary-bg-image();
+      .border-radius(3px);
+      .dropdown-toggle {
+        &:hover {
+          .button-light-tertiary-bg-image-hover();
+        }
+      }
+      &.open {
+        .border-radius(3px 3px 0px 0px);
+        .dropdown-toggle {
+          border-radius: 0 0 3px 0;
+          .button-light-tertiary-bg-image-active();
+        }
+      }
+      .text {
+        .text-charcoal75;
+      }
+
+    }
+    &.green {
+      .lightGreenGradientNormal();
+      background-color: @green;
+      .box-shadow(@lightGreenShadowNormal);
+      .text-white;
+      text-shadow: none;
+      margin: 5px;
+      .text {
+        height: 26px;
+        .flexbox;
+        .align-items(center);
+        &:hover {
+          .lightGreenGradientHover();
+          background-color: @green;
+          .box-shadow(@lightGreenShadowHover);
+          border-right: 1px solid transparent;
+        }
+      }
+
+      .arrow {
+        opacity: 0.8;
+        margin-top: 1px;
+        .icon-general-arrow-down-xs-inverted2;
+      }
+      &.rounded {
+        .border-radius(25px);
+        .text {
+          .border-radius(25px 0 0 25px);
+        }
+        .dropdown-toggle {
+          .border-radius(0 25px 25px 0);
+        }
+      }
+      .dropdown-toggle {
+        .lightGreenGradientNormal();
+        background-color: @green;
+        .box-shadow(@lightGreenShadowNormal);
+        &:hover {
+          .lightGreenGradientHover();
+          background-color: @green;
+          .box-shadow(@lightGreenShadowHover);
+        }
+      }
+      &.rounded.down.open:not(.disabled) {
+        .dropdown-toggle {
+          .lightGreenGradientActive();
+          background-color: @green;
+          .box-shadow(@lightGreenShadowActive);
+        }
+        .text {
+          &:hover {
+            .lightGreenGradientHover();
+            background-color: @green;
+            .box-shadow(none);
+          }
+        }
+      }
+      &.disabled, &.disabled .dropdown-toggle, &.disabled .text {
+        .lightGradientDisabled();
+        background-color: @white;
+        .box-shadow(@lightShadowDisabled);
+        .text-charcoal25;
+        cursor: default;
+      }
+      &.disabled {
+        .text {
+          &:hover {
+            cursor: default;
+            border-right: 1px solid fade(black, 8%);
+          }
+        }
+      }
+    }
+  }
+
+  .dropdown.down {
+    &.light {
+      &:active, &.open {
+        .border-radius(0px 0px 3px 3px);
+      }
+    }
+  }
+}
+
+

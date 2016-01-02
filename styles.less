@@ -1,0 +1,277 @@
+/*
+  This file defines styles used by examples in the LESS markdown documentation that are NOT part of
+  the actual delivered styles. E.g. styles to show color circles.
+*/
+
+@import url("content/styles/main.less");
+
+body {
+  margin: 0px;
+  font-size: 14px;
+}
+
+app {
+  height: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.styleguide-title {
+  font-size: 24px;
+}
+
+.styleguide-toc {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+  .toc2 {
+    padding-left: 10px;
+    padding-top: 5px;
+    font-weight: bold;
+  }
+  .toc3 {
+    padding-left: 20px;
+  }
+  .toc4 {
+    padding-left: 30px;
+    font-style: italic;
+    font-size: 12px;
+  }
+}
+
+.styleguide-section {
+  color: #444;
+  font-style: 14px;
+
+  > ol, > ul {
+    padding-left: 30px;
+  }
+
+  > table {
+    font-family: verdana,arial,sans-serif;
+    font-size: inherit;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+    
+    th {
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #666666;
+      background-color: #dedede;
+    }
+    td {
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #666666;
+      background-color: #ffffff;
+    }
+  }
+
+  // Demo example
+  > .codedemo {
+    margin-top: 10px;
+    position: relative;
+    padding: 40px;
+    font-size: 100%;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid #ebebeb;
+    :after {
+      content: "Example";
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      padding: 3px 7px;
+      color: #ebebeb;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 3px 0 3px 0;
+      background-color: #444;
+    }
+  }
+
+  // Code example
+  > pre {
+    position: relative;
+    margin: 0 0 10px 0;
+    padding: 20px;
+    border: 1px solid #ebebeb;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    opacity: 0.5;
+    > code {
+      padding: 10px;
+      font-size: 11px;
+      white-space: pre-wrap;
+
+      &:before {
+        content: "Code";
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        padding: 3px 7px;
+        color: #ebebeb;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 0 0 4px 0;
+        background-color: #444;
+      }
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .styleguide.colors {
+    display: flex;
+    flex-wrap: wrap;
+
+    &.center {
+      justify-content: center;
+    }
+
+    > div {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      color: black;
+      line-height: 100px;
+      text-align: center;
+      background: #000;
+      margin: 5px;
+  
+      &.small {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+  
+      &.charcoal {
+        background-color: @charcoal;
+        color: white;
+      }
+      &.charcoal75 {
+        background-color: @charcoal75;
+        color: white;
+      }
+      &.charcoal50 {
+        background-color: @charcoal50;
+        color: white;
+      }
+      &.charcoal25 {
+        background-color: @charcoal25;
+        color: white;
+      }
+      &.white {
+        background-color: @white;
+        border: 1px solid @charcoal25;
+      }
+      &.red {
+        background-color: @red;
+        color: white;
+      }
+      &.lightRed {
+        background-color: @lightRed;
+        color: white;
+      }
+      &.yellow {
+        background-color: @yellow;
+      }
+      &.darkGreen {
+        background-color: @darkGreen;
+        color: white;
+      }
+      &.green {
+        background-color: @green;
+      }
+      &.grey {
+        background-color: @grey;
+      }
+      &.lightGrey {
+        background-color: @lightGrey;
+      }
+      &.linkLightGreen {
+        background-color: @linkLightGreen;
+      }
+      &.linkDarkGreen {
+        background-color: @linkDarkGreen;
+        color: white;
+      }
+      &.tintGreen {
+        background-color: @tintGreen;
+        color: white;
+      }
+      &.orange {
+        background-color: @orange;
+        color: white;
+      }
+      &.tintOrange {
+        background-color: @tintOrange;
+        color: white;
+      }
+      &.lightTintGrey {
+        background-color: @lightTintGrey;
+        border: 1px solid @charcoal25;
+      }
+      &.charcoalBlack50 {
+        background-color: @charcoalBlack50;
+        color: white;
+      }
+      &.charcoalBlack30 {
+        background-color: @charcoalBlack30;
+        color: white;
+      }
+      &.lightCharcoal {
+        background-color: @lightCharcoal;
+        color: white;
+      }
+      &.black {
+        background-color: @white;
+        color: white;
+      }
+      &.font-small {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.downloads {
+  margin-top: 20px;
+  padding: 5px 20px 20px 20px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  .content {
+    display: flex;
+    p {
+      font-size: 13px;
+      padding: 0;
+    }
+  }
+  .file {
+    padding-left: 10px;
+  }
+}
+
+.canvas {
+  padding: 10px;
+  text-align: center;
+}
+
+//background colors
+.bg-lightGrey { background-color: @lightGrey }
+.bg-charcoal75 { background-color: @charcoal75; }
+.bg-green { background-color: @green; }
+
+
+
+

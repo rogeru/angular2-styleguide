@@ -1,0 +1,677 @@
+/*
+# Typography
+
+<div class="downloads">
+
+  <h4>DOWNLOADS</h4>
+  <div class="content">
+    <img src="/images/less-file.png" style="height: 20px;vertical-align: bottom;"/>
+    <div class="file">
+      [font.less](/content/styles/font.less)
+      <p>This file contains the fonts and other font related classes</p>
+    </div>
+  </div>
+</div>
+
+***
+
+<div class="kalei-styleguide-switcher">
+    <select class="in-page">
+        <option disabled selected>Jump to section</option>
+        <option value="typo-1">Introduction</option>
+        <option value="typo-2">Font families</option>
+        <option value="typo-3">Font styles and usage rules</option>
+        <option value="typo-4">Font colors</option>
+        <option value="typo-5">Usage rules for light backgrounds</option>
+        <option value="typo-6">Usage rules for dark backgrounds</option>
+        <option value="typo-7">Usage rules for ???</option>
+        <option value="typo-8">Redlining</option>
+    </select>
+</div>
+
+## Introduction
+
+Circuit uses specific fonts for each platform to ensure the best user experience. This page defines general rules for typography for all platforms.
+
+## Font families
+
+### Sans serif
+
+The main application font is sans serif. The platform-specific fonts are:
+
+* Web/Chrome - Open Sans
+* iPad/iPhone - Helvetica Neue
+* Android - Droid Sans
+
+### Serif
+A serif font is used as a secondary application font, providing a more personal and classic character to conversation copy text, both in the Conversation Selector Items and Conversation Feed Items. The platform-specific fonts are:
+
+* Web/Chrome - Georgia
+* iPad/iPhone - Georgia
+* Android - Droid Serif
+
+## Font styles and usage rules
+
+```
+  <div class="text-h1">
+    Heading 01
+  </div>
+
+  <div class="text-h2">
+    Heading 02
+  </div>
+
+  <div class="text-h3">
+    Heading 03
+  </div>
+
+  <div class="text-standard">
+    Standard
+  </div>
+
+  <div class="text-small">
+    Small
+  </div>
+
+  <div class="text-mini">
+    Mini
+  </div>
+
+  <div class="text-conversation-large">
+    Conversation L
+  </div>
+
+  <div class="text-conversation">
+    Conversation
+  </div>
+
+  <div class="text-status">
+    Status
+  </div>
+
+  <a class="text-linkDarkGreen">
+    Weblink & PhoneNumber
+  </a>
+
+  <div class="text-darkGreen">
+    ContactLink
+  </div>
+
+```
+
+Here are examples from the Web Application to show usage rules for defined font styles.
+
+Style | Usage
+--- | --- | ---
+** Heading 01 ** | <ul><li>Email subjects</li><li>Display elements (to be defined)</li></ul>
+** Heading 02 ** | <ul><li>Names of contacts</li><li>Tab Navigation</li><li>Primary information</li><li>Conversation headlines</li><li>Headlines</li></ul>
+** Heading 03 ** | <ul><li>Duration of calls</li><li>Button Labels</li></ul>
+** Standard ** | <ul><li>Navigation elements</li><li>Search field text</li><li>Hint text</li></ul>
+** Small ** | <ul><li>Sorting Labels</li><li>Supplementary information</li></ul>
+** Mini ** | <ul><li>Timestamps</li><li>Attachment file names</li><li>Supplementary information</li></ul>
+** Conversation L ** | <ul><li>Conversation Textfield Hint Text</li></ul>
+** Conversation ** | <ul><li>Conversation bodytext</li></ul>
+** Status ** | <ul><li>Status message</li></ul>
+** Weblink & PhoneNumber ** | <ul><li>Weblinks in Conversation Items</li><li>Phone Numbers in Conversation Items</li></ul>
+** Contact Link ** | <ul><li>Contact Names in Conversation Items</li></ul>
+
+
+Other platforms:  
+
+* [iOS - Typography](todo)  
+* [Android Style Guide - Typography](todo)  
+
+
+## Font colors
+| <br/> | <br/> | Color Name | R | G | B | HEX
+|--- | --- | --- | --- | --- | --- | ---
+| **Main <br/>Font Colors** | <div class="styleguide colors center"><div class=" small charcoal"></div></div> | ** Charcoal ** | 42 | 49 | 54 | 2a3163
+|| <div class="styleguide colors center"><div class=" small charcoal75"></div></div> | ** Charcoal75 ** | 82 | 84 | 89 | 525459
+|| <div class="styleguide colors center"><div class=" small charcoal50"></div></div> | ** Charcoal50 ** | 124 | 123 | 127 | 7c7b7f
+|| <div class="styleguide colors center"><div class=" small charcoal25"></div></div> | ** Charcoal25 ** | 179 | 178 | 180 | b3b2b4
+| **Secondary <br/>Font Colors** | <div class="styleguide colors center"><div class=" small white"></div></div> | ** White ** | 255 | 255 | 255 | ffffff
+|| <div class="styleguide colors center"><div class=" small red"></div></div> | ** Red ** | 194 | 32 | 38 | c22026
+|| <div class="styleguide colors center"><div class=" small yellow"></div></div> | ** Yellow ** | 255 | 239 | 56 | ffef38
+|| <div class="styleguide colors center"><div class=" small darkGreen"></div></div> | ** DarkGreen ** | 73 | 112 | 52 | 497034
+|| <div class="styleguide colors center"><div class=" small green"></div></div> | ** Green ** | 136 | 197 | 65 | 88c541
+|| <div class="styleguide colors center"><div class=" small grey"></div></div> | ** Grey ** | 218 | 218 | 218 | dadada
+|| <div class="styleguide colors center"><div class=" small lightGrey"></div></div> | ** LightGrey ** | 240 | 240 | 240 | f0f0f0
+
+
+
+### Usage rules for light backgrounds
+| | |
+| --- | --- |
+| ** Charcoal ** | <ul><li>Primary information</li><li>Names of contacts</li><li>Conversation headlines</li><li>Headlines</li><li>Form values</li></ul> |
+| ** Charcoal75 ** | <ul><li>Conversation bodytext</li><li>Secondary information</li><li>Form Labels</li></ul> |
+| ** Charcoal50 ** | <ul><li>Supplementary information</li><li>Timestamps</li><li>Unselected tab items</li><li>Hint text</li><li>Disabled text</li></ul> |
+| ** Charcoal25 ** | <ul><li>Hint text (on white background)</li><li>Disabled text (on white background)</li></ul> |
+
+
+
+
+### Usage rules for dark backgrounds
+| | |
+| --- | --- |
+| ** White ** | <ul><li>Primary information</li><li>Names of contacts</li><li>Conversation headlines</li><li>Headlines</li></ul> |
+| ** Charcoal25 ** | <ul><li>Conversation bodytext</li><li>Secondary information</li><li>Unselected tab items</li></ul> |
+| ** Charcoal50 ** | <ul><li>Supplementary information</li><li>Hint text</li><li>Disabled text</li></ul> |
+
+
+### Font drop shadow
+For added dimension and a letterpress feeling, drop shadow is added to the font in addition to the described font styles. Dark text on light backgrounds has a semi-transparent white drop shadow. Light text on dark backgrounds has a semi-transparent black drop shadow.
+
+### Redlining
+
+Redlines are based on the visual appearance of the fonts. The measurements are done from the Baseline and Ascender of the typefaces.
+
+
+# Web Typography
+
+## Font Families
+
+### Open Sans
+The main application font is *Open Sans*, which has been specifically designed for use with interfaces. Open Sans was designed with an upright stress, open forms and a neutral, yet friendly appearance. It was optimized for print, web, and mobile interfaces, and has excellent legibility characteristics in its letterforms.
+
+
+<a href="http://www.fontsquirrel.com/fonts/open-sans">Download the font here</a>
+
+### Georgia
+*Georgia* is the secondary application font, which provides a more personal and classic character to conversation copy text in the center of the application. The typeface is designed for clarity on a computer monitor even at small sizes, partially effective due to a large x-height.
+
+
+*Georgia* is a readily available system font.
+
+## Font styles
+| <br/> | Font | Size | Baseline to </br>ascender height | Weight | Line Height | Class
+|--- | --- | --- | --- | --- | --- | ---
+| User initials | Open Sans | 66px | 49px | Semibold | 72px | text-user-initials
+| Sign Up Heading 1 | Open Sans | 24px | 18px | Light | 28px | text-signup-h1
+| Sign Up Heading 2 | Open Sans | 16px | 13px | Light | 20px | text-signup-h2
+| Heading Lg | Open Sans | 24px | 18px | Semibold | 28px | text-lg
+| Heading M Light | Open Sans | 20px | 16px | Light | 24px | text-heading-m-light
+| SubHeading Lg | Open Sans | 16px | 13px | Bold | 20px | text-subHeading-lg
+| SubHeading Lg 2 | Open Sans | 16px | 13px | Regular | 20px | text-subHeading-lg2
+| Heading 1 | Open Sans | 14px | 11px | Semibold | 18px | text-h1
+| SubHeading | Open Sans | 14px | 11px | Regular | 19px | text-subHeading
+| Heading 2 | Open Sans | 13px | 10px | Bold | 19px | text-h2
+| Heading 3 | Open Sans | 13px | 10px | Semibold | 19px | text-h3
+| Standard | Open Sans  | 13px | 10px | Regular | 19px | text-standard
+| Small | Open Sans  | 12px | 9px | Semibold | 18px | text-small
+| Small 2 | Open Sans  | 12px | 9px | Bold | 18px | text-small2
+| Small 3 | Open Sans  | 12px | 9px | Regular | 18px | text-small3
+| Mini | Open Sans  | 11px | 8px | Regular | 17px | text-mini
+| Mini 2 | Open Sans | 11px | 8px | Semibold | 17px | text-mini2
+| Mini 3 | Open Sans | 11px | 8px | Bold | 17px | text-mini3
+| Large | Open Sans | 18px | 12px | Semibold | 23px | text-large
+| Conversation L | Georgia | 14px | 11px | Regular | 20px | text-conversation-large
+| Conversation | Georgia | 13px | 10px | Regular | 19px | text-conversation
+| Conversation Bold | Georgia | 13px  | 10px | Bold | 19px | text-conversation-bold
+| Status | Georgia | 13px | 10px | Italic | 17px | text-status
+
+
+## Font drop shadows
+
+A 1 px drop shadow is added to the font to create dimension.
+
+
+| <br/> | Angle | Distance | Size | Color| Class
+|--- | --- | --- | --- | --- | ---
+|Dark text on light background | 90 | 1px | 0px | White, 80% opacity | white-drop-shadow
+|Light text on dark background | -90 | 1px | 0px | Black, 30% opacity | black-drop-shadow
+|Text on green backgrounds | --- | 0px | 1px | Green, 50% opacity | green-drop-shadow
+|Black avatar shadow | --- | 0px | 3px | Black, 30% opacity | black-avatar-shadow
+
+### Dark text on light background
+
+* Angle: 90
+* Distance: 1 px
+* Size: 0 px
+* Color: White, 80% opacity
+
+```
+  <div class="canvas bg-lightGrey">
+    <div class="text-h1 white-drop-shadow">
+      Dark text on light background
+    </div>
+  </div>
+
+```
+
+### Light text on dark background
+
+* Angle: -90
+* Distance: 1 px
+* Size: 0 px
+* Color: Black, 30% opacity
+
+```
+  <div class="canvas bg-charcoal75">
+    <div class="text-h1 text-white black-drop-shadow">
+      Light text on dark background
+    </div>
+  </div>
+
+```
+
+### Text on green backgrounds
+
+* Distance: 0 px
+* Size: 1 px
+* Color: Green, 50% opacity
+
+```
+  <div class="canvas bg-green">
+    <div class="text-h1 text-white green-drop-shadow">
+      Text on green background
+    </div>
+  </div>
+
+```
+
+### Black avatar shadow
+
+* Distance: 0 px
+* Size: 3 px
+* Color: Black, 30% opacity
+
+```
+  <div class="canvas bg-charcoal75">
+    <div class="text-h1 text-white black-avatar-shadow">
+      Black avatar shadow
+    </div>
+  </div>
+
+```
+
+*/
+
+ @font-face {
+  font-family: 'OpenSans';
+  src: url('/content/fonts/OpenSans-Regular.eot'); /* IE9 Compat Modes */
+  src: url('/content/fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/content/fonts/OpenSans-Regular.woff2') format('woff2'),
+       url('/content/fonts/OpenSans-Regular.woff') format('woff'),
+       url('/content/fonts/OpenSans-Regular.ttf') format('truetype'),
+       url('/content/fonts/OpenSans-Regular.svg#OpenSans-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSansBold';
+  src: url('/content/fonts/OpenSans-Bold.eot'); /* IE9 Compat Modes */
+  src: url('/content/fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/content/fonts/OpenSans-Bold.woff2') format('woff2'),
+       url('/content/fonts/OpenSans-Bold.woff') format('woff'),
+       url('/content/fonts/OpenSans-Bold.ttf') format('truetype'),
+       url('/content/fonts/OpenSans-Bold.svg#OpenSans-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSansSemiBold';
+  src: url('/content/fonts/OpenSans-Semibold.eot'); /* IE9 Compat Modes */
+  src: url('/content/fonts/OpenSans-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/content/fonts/OpenSans-Semibold.woff2') format('woff2'),
+       url('/content/fonts/OpenSans-Semibold.woff') format('woff'),
+       url('/content/fonts/OpenSans-Semibold.ttf') format('truetype'),
+       url('/content/fonts/OpenSans-Semibold.svg#OpenSans-Semibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSansLight';
+  src: url('/content/fonts/OpenSans-Light.eot'); /* IE9 Compat Modes */
+  src: url('/content/fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/content/fonts/OpenSans-Light.woff2') format('woff2'),
+       url('/content/fonts/OpenSans-Light.woff') format('woff'),
+       url('/content/fonts/OpenSans-Light.ttf') format('truetype'),
+       url('/content/fonts/OpenSans-Light.svg#OpenSans-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text-user-initials {
+  font-family: OpenSansSemiBold;
+  font-size: 66px;
+  line-height: 72px;
+}
+.text-user-initials-scale(@scale: 0) {
+  .text-user-initials;
+  @media screen and (min-width: 1201px) {
+    .scale-text(66, 72, @scale);
+  }
+}
+.text-signup-h1 {
+  font-family: OpenSansLight;
+  font-size: 24px;
+  line-height: 28px;
+}
+.text-signup-h1-scale(@scale: 0) {
+  .text-signup-h1;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    //mobile fonts
+    font-size:  ~'calc(48px / 2)';
+    line-height: ~'calc(60px / 2)';
+  }
+  @media screen and (min-width: 1201px) {
+    .scale-text(30, 36, @scale);
+  }
+}
+.text-signup-h2 {
+  font-family: OpenSansLight;
+  font-size: 16px;
+  line-height: 20px;
+}
+.text-signup-h2-scale(@scale: 0) {
+  .text-signup-h2;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    //mobile fonts
+    font-size:  ~'calc(34px / 2)';
+    line-height: ~'calc(40px / 2)';
+  }
+  @media screen and (min-width: 1201px) {
+    .scale-text(21, 28, @scale);
+  }
+}
+.text-lg {
+  font-family: OpenSansSemiBold;
+  font-size: 24px;
+  line-height: 28px;
+}
+.text-lg-scale(@scale: 0) {
+  .text-lg;
+  @media screen and (min-width: 1201px) {
+    .scale-text(24, 28, @scale);
+  }
+}
+.text-heading-m-light {
+  font-family: OpenSansLight;
+  font-size: 20px;
+  line-height: 24px;
+}
+.text-heading-m-light-scale(@scale: 0) {
+  .text-heading-m-light;
+  @media screen and (min-width: 1201px) {
+    .scale-text(20, 24, @scale);
+  }
+}
+.text-subHeading-lg {
+  font-family: OpenSansBold;
+  font-size: 16px;
+  line-height: 20px;
+}
+.text-subHeading-lg-scale(@scale: 0) {
+  .text-subHeading-lg;
+  @media screen and (min-width: 1201px) {
+    .scale-text(16, 20, @scale);
+  }
+}
+.text-subHeading-lg2 {
+  font-family: OpenSans;
+  font-size: 16px;
+  line-height: 20px;
+}
+.text-subHeading-lg2-scale(@scale: 0) {
+  .text-subHeading-lg2;
+  @media screen and (min-width: 1201px) {
+    .scale-text(16, 20, @scale);
+  }
+}
+.text-subHeading {
+  font-family: OpenSans;
+  font-size: 14px;
+  line-height: 19px;
+}
+.text-subHeading-scale(@scale: 0) {
+  .text-subHeading;
+  @media screen and (min-width: 1201px) {
+    .scale-text(14, 19, @scale);
+  }
+}
+.text-h1 {
+  font-family: OpenSansSemiBold;
+  font-size: 14px;
+  line-height: 18px;
+}
+.text-h1-scale(@scale: 0) {
+  .text-h1;
+  @media screen and (min-width: 1201px) {
+    .scale-text(14, 18, @scale);
+  }
+}
+.text-h2 {
+  font-family: OpenSansBold;
+  font-size: 13px;
+  line-height: 19px;
+}
+.text-h2-scale(@scale: 0) {
+  .text-h2;
+  @media screen and (min-width: 1201px) {
+    .scale-text(13, 19, @scale);
+  }
+}
+.text-h3 {
+  font-family: OpenSansSemiBold;
+  font-size: 13px;
+  line-height: 19px;
+}
+.text-h3-scale(@scale: 0) {
+  .text-h3;
+  @media screen and (min-width: 1201px) {
+    .scale-text(13, 19, @scale);
+  }
+}
+.text-standard {
+  font-family: OpenSans;
+  font-size: 13px;
+  line-height: 19px;
+}
+.text-standard-scale(@scale: 0) {
+  .text-standard;
+  @media screen and (min-width: 1201px) {
+    .scale-text(13, 19, @scale);
+  }
+}
+.text-small {
+  font-family: OpenSansSemiBold;
+  font-size: 12px;
+  line-height: 18px;
+}
+.text-small-scale(@scale: 0) {
+  .text-small;
+  @media screen and (min-width: 1201px) {
+    .scale-text(12, 18, @scale);
+  }
+}
+.text-small2 {
+  font-family: OpenSansBold;
+  font-size: 12px;
+  line-height: 18px;
+}
+.text-small2-scale(@scale: 0) {
+  .text-small2;
+  @media screen and (min-width: 1201px) {
+    .scale-text(12, 18, @scale);
+  }
+}
+.text-small3 {
+  font-family: OpenSans;
+  font-size: 12px;
+  line-height: 18px;
+}
+.text-small3-scale(@scale: 0) {
+  .text-small3;
+  @media screen and (min-width: 1201px) {
+    .scale-text(12, 18, @scale);
+  }
+}
+.text-mini {
+  font-family: OpenSans;
+  font-size: 11px;
+  line-height: 17px;
+}
+.text-mini-scale(@scale: 0) {
+  .text-mini;
+  @media screen and (min-width: 1201px) {
+    .scale-text(11, 15, @scale);
+  }
+}
+.text-mini2 {
+  font-family: OpenSansSemiBold;
+  font-size: 11px;
+  line-height: 17px;
+}
+.text-mini2-scale(@scale: 0) {
+  .text-mini2;
+  @media screen and (min-width: 1201px) {
+    .scale-text(11, 19, @scale);
+  }
+}
+.text-mini3 {
+  font-family: OpenSansBold;
+  font-size: 11px;
+  line-height: 17px;
+}
+.text-mini3-scale(@scale: 0) {
+  .text-mini3;
+  @media screen and (min-width: 1201px) {
+    .scale-text(11, 19, @scale);
+  }
+}
+.text-large {
+  font-family: OpenSansSemiBold;
+  font-size: 18px;
+  line-height: 23px;
+}
+.text-large-scale(@scale: 0) {
+  .text-large;
+  @media screen and (min-width: 1201px) {
+    .scale-text(18, 21, @scale);
+  }
+}
+.text-conversation-large {
+  font-family: Georgia;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 20px;
+}
+.text-conversation-large-scale(@scale: 0) {
+  .text-conversation-large;
+  @media screen and (min-width: 1201px) {
+    .scale-text(14, 20, @scale);
+  }
+}
+.text-conversation {
+  font-family: Georgia;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 19px;
+}
+.text-conversation-scale(@scale: 0) {
+  .text-conversation;
+  @media screen and (min-width: 1201px) {
+    .scale-text(13, 19, @scale);
+  }
+}
+.text-conversation-bold {
+  font-family: Georgia;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 19px;
+}
+.text-conversation-bold-scale(@scale: 0) {
+  .text-conversation-bold;
+  @media screen and (min-width: 1201px) {
+    .scale-text(13, 19, @scale);
+  }
+}
+.text-status {
+  font-family: Georgia;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: italic;
+  line-height: 19px;
+}
+.text-status-scale(@scale: 0) {
+  .text-status;
+  @media screen and (min-width: 1201px) {
+    .scale-text(13, 19, @scale);
+  }
+}
+.text-countdown {
+  font-family: OpenSansBold;
+  font-size: 36px;
+  line-height: 40px;
+}
+.text-countdown-scale(@scale: 0) {
+  .text-countdown;
+  @media screen and (min-width: 1201px) {
+    .scale-text(36, 40, @scale);
+  }
+}
+
+.white-drop-shadow {
+  text-shadow: 0px 1px 0px fade(@white, 80%);
+}
+.green-drop-shadow {
+  text-shadow: 0px 0px 1px fade(@darkGreen, 50%);
+}
+.black-drop-shadow {
+  text-shadow: 0px -1px 0px fade(black, 30%);
+}
+.black-avatar-shadow {
+  text-shadow: 0px 0px 3px fade(black, 30%);
+}
+
+.text-charcoal { color: @charcoal; .white-drop-shadow; }
+.text-charcoal75 { color: @charcoal75; .white-drop-shadow; }
+.text-charcoal50 { color: @charcoal50; .white-drop-shadow; }
+.text-charcoal25 { color: @charcoal25; .white-drop-shadow; }
+.text-grey { color: @grey; .white-drop-shadow; }
+
+.text-white { color: @white; }
+.text-red { color: @red; }
+.text-green { color: @green; }
+.text-darkGreen { color: @darkGreen; }
+.text-lightgrey { color: @lightGrey; }
+.text-linkDarkGreen { color: @linkDarkGreen; }
+.text-linkLightGreen { color: @linkLightGreen; }
+
+.link-lightGreen {
+  color: @linkLightGreen;
+}
+.link-darkGreen {
+  color: @linkDarkGreen;
+  &.on-light-background {
+    .white-drop-shadow;
+  }
+}
+.link-charcoal50 {
+  .text-charcoal50;
+}
+.link-lightGreen, .link-darkGreen, .link-charcoal50 {
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.no-decoration {
+  text-decoration: none;
+  color: inherit;
+}
+
+//function for scaling text
+.scale-text (@font-size, @line-height, @scale) when (@scale > 0) {
+  line-height: ~'calc(@{line-height}px + @{scale}px)';
+  font-size: ~'calc(@{font-size}px + @{scale}px)';
+}
+
+//rich text highlighting
+.rich-text-highlight {
+  background-color: #D4EFB5;
+}
