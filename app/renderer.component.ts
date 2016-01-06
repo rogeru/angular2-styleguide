@@ -1,7 +1,6 @@
 import {Component, View} from 'angular2/core';
 import {RouteParams, Location} from 'angular2/router';
 import {Http} from 'angular2/http';
-
 import {NavigationService} from './navigation.service';
 import {MarkdownParser} from 'markdownParser';
 
