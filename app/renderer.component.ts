@@ -3,6 +3,7 @@ import {RouteParams, Location} from 'angular2/router';
 import {Http} from 'angular2/http';
 import {NavigationService} from './navigation.service';
 import {MarkdownParser} from 'markdownParser';
+import * as Highlight from 'highlight';
 
 @Component({
     selector: 'renderer'
@@ -33,16 +34,14 @@ export class RendererComponent {
             let parser = new MarkdownParser();
 
             // Marked options including higlighting
-            /*
             parser.setOptions({
                 sanitize: false,
                 gfm: true,
                 tables: true,
                 highlight: function (code) {
-                    return highlight.highlightAuto(code).value;
+                    return Highlight.highlightAuto(code).value;
                 }
             });
-            */
 
             // Add id's for headings
             parser.renderer.heading = function (text, level) {
